@@ -1,16 +1,17 @@
 package com.intr.debt.dto;
 
-import lombok.Data;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Data
+@Getter
+@Setter
+@Builder
 public class PayoutDto {
-    private String companyIdentificationNumber;// tax number
+    private String companyIdentityNumber;// tax number
     private LocalDate paymentDate;
     private BigDecimal paymentAmount;
 }

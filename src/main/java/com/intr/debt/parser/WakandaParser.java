@@ -29,7 +29,7 @@ public class WakandaParser implements Parser {
         List<PayoutDto> payoutDtos = new ArrayList<>();
         try (Reader reader = new InputStreamReader(new FileInputStream(file), ISO_ENCODING)) {
             CSVFormat format = CSVFormat.Builder.create().
-                    setDelimiter(';')
+                    setDelimiter(SEMI_COLON_DELIMITER)
                     .setQuote('"')
                     .setIgnoreSurroundingSpaces(true)
                     .setHeader()
@@ -44,11 +44,12 @@ public class WakandaParser implements Parser {
                 String amountStr = record.get(AMOUNT).replace(",", ".");
 
                 BigDecimal amount = new BigDecimal(amountStr);
-                PayoutDto payoutDto = new PayoutDto();
-                payoutDto.setPaymentAmount(amount);
-                payoutDto.setPaymentDate(LocalDate.parse(paymentDate));
-                payoutDto.setCompanyIdentificationNumber(record.get(ID_NUMBER));
-                payoutDtos.add(payoutDto);
+
+                payoutDtos.add(PayoutDto.builder()
+                        .paymentDate(LocalDate.parse(paymentDate))
+                        .companyIdentityNumber(record.get(ID_NUMBER))
+                        .paymentAmount(amount)
+                        .build());
             });
 
         } catch (FileNotFoundException e) {

@@ -14,7 +14,7 @@ public class WakandaPayoutJob {
         this.wakandaProcessor = wakandaProcessor;
     }
 
-    @Scheduled(cron = "0 * * ? * *")
+    @Scheduled(cron = "0 */4 * ? * *")
     public void processWakandaFiles() {
         wakandaProcessor.processPayout();
 
