@@ -53,7 +53,6 @@ public abstract class BaseIT {
     }
 
 
-    // Helpers for subclasses
     protected WireMockServer wm() { return WIREMOCK; }
     protected Path wakandaDir() { return WAKANDA_DIR; }
 }

@@ -3,7 +3,7 @@ package com.intr.debt.service;
 import com.intr.debt.dto.PayoutDto;
 import com.intr.debt.httpclient.PayoutClient;
 import com.intr.debt.parser.Parser;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -14,18 +14,13 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class WakandaProcessor implements PayoutProcessor {
     @Value("${wakanda.file.path}")
     private String filePath;
 
     private final Parser wakandaParser;
     private final PayoutClient payoutClient;
-
-    @Autowired
-    public WakandaProcessor(Parser wakandaParser, PayoutClient payoutClient) {
-        this.wakandaParser = wakandaParser;
-        this.payoutClient = payoutClient;
-    }
 
     @Override
     public void processPayout() {

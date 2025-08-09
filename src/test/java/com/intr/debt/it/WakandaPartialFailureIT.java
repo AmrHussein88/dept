@@ -37,7 +37,6 @@ public class WakandaPartialFailureIT extends BaseIT {
         failedRepo.deleteAll();
         wm().resetAll();
 
-        // Scenario: first ok -> second fail
         wm().stubFor(post(urlEqualTo("/payout"))
                 .inScenario("partial")
                 .whenScenarioStateIs(STARTED)

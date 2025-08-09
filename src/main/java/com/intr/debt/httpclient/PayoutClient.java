@@ -3,6 +3,8 @@ package com.intr.debt.httpclient;
 import com.intr.debt.dto.PayoutDto;
 import com.intr.debt.model.FailedPayout;
 import com.intr.debt.repository.FailedPayoutRepository;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -13,16 +15,12 @@ import org.springframework.web.client.RestTemplate;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class PayoutClient {
     private final RestTemplate restTemplate;
     private final FailedPayoutRepository failedPayoutRepository;
     @Value("${intrum.payout.api}")
     private String payoutUri;
-
-    public PayoutClient(RestTemplate restTemplate, FailedPayoutRepository failedPayoutRepository) {
-        this.restTemplate = restTemplate;
-        this.failedPayoutRepository = failedPayoutRepository;
-    }
 
     public void processPayout(PayoutDto dto) {
         processPayout(dto, false);
