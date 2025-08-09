@@ -1,6 +1,6 @@
 package com.intr.debt.job;
 
-import com.intr.debt.processor.WakandaProcessor;
+import com.intr.debt.service.WakandaProcessor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.intr.debt.processor;
+package com.intr.debt.service;
 
 public interface PayoutProcessor {
     void processPayout();

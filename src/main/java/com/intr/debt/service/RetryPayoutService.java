@@ -22,6 +22,7 @@ public class RetryPayoutService {
 
     @Transactional
     public void retryFailedPayout(FailedPayout failedPayout) {
+        log.info("Retrying payout for ID: {}", failedPayout.getId());
         try {
             boolean isProcessed = payoutClient.processPayout(PayoutDto.builder()
                     .paymentAmount(failedPayout.getPaymentAmount())

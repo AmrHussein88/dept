@@ -36,7 +36,7 @@ public class PayoutClient {
             restTemplate.postForEntity(payoutUri, request, String.class);
             return true;
         } catch (Exception e) {
-            log.error("An error occured during sending data ", e.getMessage());
+            log.error("An error occured during sending data to external system ", e);
 
             if (!isRetry) {
                 mapAndSaveFailedPayout(dto);

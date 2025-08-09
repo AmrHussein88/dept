@@ -53,9 +53,9 @@ public class WakandaParser implements Parser {
             });
 
         } catch (FileNotFoundException e) {
-            log.error("File not found ", e.getMessage());
+            log.error("File not found ", e);
         } catch (IOException e) {
-            log.error("Error occured ", e.getMessage());
+            log.error("Error occured ", e);
         }
         return payoutDtos;
     }

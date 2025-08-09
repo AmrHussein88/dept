@@ -1,6 +1,4 @@
-package com.intr.debt.processor;
-
-import java.util.List;
+package com.intr.debt.service;
 
 public class GondorProcessor implements PayoutProcessor{
 

@@ -1,4 +1,4 @@
-package com.intr.debt.processor;
+package com.intr.debt.service;
 
 import com.intr.debt.dto.PayoutDto;
 import com.intr.debt.httpclient.PayoutClient;
@@ -38,7 +38,7 @@ public class WakandaProcessor implements PayoutProcessor {
         });
     }
 
-    private List<File> getWakandaFiles() {
+    List<File> getWakandaFiles() {
         String yesterday = LocalDate.now()
                 .minusDays(1)
                 .format(DateTimeFormatter.ofPattern("yyyyMMdd"));
