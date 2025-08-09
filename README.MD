@@ -21,3 +21,6 @@ Accept: application/json
 POST http://localhost:8080/payouts/retry-payout
 Content-Type: application/json
 Accept: application/json
+
+## please note that you need to add new files or rename the existing one with the date -1 day of current date so that the job can retrieve a file to work on
+## Files directory : payout-files-directory
